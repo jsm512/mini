@@ -39,4 +39,5 @@ public class RequestVacation {
     @ManyToOne
     @JoinColumn(name = "emp_idx")
     private Employee employee;
+    //asdfasdf
 }
