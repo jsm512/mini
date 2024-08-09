@@ -40,4 +40,5 @@ public class RequestVacation {
     @JoinColumn(name = "emp_idx")
     private Employee employee;
     //asdfasdf
+    //asdfsadf
 }
