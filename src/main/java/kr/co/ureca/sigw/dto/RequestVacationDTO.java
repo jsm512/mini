@@ -15,6 +15,6 @@ public class RequestVacationDTO {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String requestStatus;
-    private String content;
+    private String vacationType;
 
 }

@@ -54,7 +54,7 @@
 <div class="container">
     <h1>휴가 신청서 작성</h1>
 
-    <form action="${pageContext.request.contextPath}/ureca/leave_requests/form" method="post">
+    <form action="${pageContext.request.contextPath}/leave_requests/form" method="post">
         <div class="form-group">
             <label for="empId">사원 번호:</label>
             <input type="text" id="empId" name="empId" required />
@@ -72,18 +72,20 @@
             <input type="datetime-local" id="requestDate" name="requestDate" required />
         </div>
         <div class="form-group">
-            <label for="requestStatus">상태:</label>
-            <input type="text" id="requestStatus" name="requestStatus" required />
-        </div>
-        <div class="form-group">
-            <label for="useVacation">사용한 휴가:</label>
-            <input type="number" id="useVacation" name="useVacation" required />
+            <label for="vacationType">종류:</label>
+            <select id="vacationType" name="vacationType" required>
+                <option value="병가">병가</option>
+                <option value="여행">여행</option>
+                <option value="개인">개인</option>
+                <option value="기타">기타</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="content">사유:</label>
             <input type="text" id="content" name="content" required />
         </div>
-        <a href="${pageContext.request.contextPath}/leave_requests" class="btn">제출</a>
+
+        <button type="submit" class="btn">제출</button>
     </form>
 
     <a href="${pageContext.request.contextPath}/leave_requests" class="btn">휴가 신청 내역 보기</a>

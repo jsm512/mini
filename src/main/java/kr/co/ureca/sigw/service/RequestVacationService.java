@@ -41,16 +41,23 @@ public class RequestVacationService {
                 .collect(Collectors.toList());
     }
 
-    public void createVacationRequest(Long empId, LocalDateTime startDate, LocalDateTime endDate, String requestStatus, String content) {
+    public void createLeaveRequest(Long empId, LocalDateTime startDate, LocalDateTime endDate,
+                                   LocalDateTime requestDate, String vacationType, String content) {
+        // Employee 정보 조회
         Employee employee = employeeDAO.findById(empId)
                 .orElseThrow(() -> new EntityNotFoundException("Employee not found with id " + empId));
 
+        // RequestVacation 객체 생성
         RequestVacation requestVacation = new RequestVacation();
         requestVacation.setStartDate(startDate);
         requestVacation.setEndDate(endDate);
+        requestVacation.setRequestDate(requestDate);
+        requestVacation.setVacationType(vacationType);
         requestVacation.setContent(content);
         requestVacation.setEmployee(employee);
+        requestVacation.setUpdateDate(LocalDateTime.now()); // 생성 시점에 업데이트 날짜 설정
 
+        // DB에 저장
         requestVacationDAO.save(requestVacation);
     }
     private RequestVacationDTO convertToDTO(RequestVacation requestVacation) {
@@ -58,7 +65,7 @@ public class RequestVacationService {
         dto.setRequestId(requestVacation.getRequestId());
         dto.setStartDate(requestVacation.getStartDate());
         dto.setEndDate(requestVacation.getEndDate());
-        dto.setContent(requestVacation.getContent());
+        dto.setVacationType(requestVacation.getVacationType());
         return dto;
     }
 }
