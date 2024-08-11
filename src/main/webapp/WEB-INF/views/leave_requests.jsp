@@ -96,7 +96,7 @@
                     <td>${request.startDate}</td>
                     <td>${request.endDate}</td>
                     <td>${request.requestStatus}</td>
-                    <td>${request.content}</td>
+                    <td>${request.vacationType}</td>
                 </tr>
             </c:forEach>
             </tbody>

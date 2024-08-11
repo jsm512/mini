@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -43,16 +44,23 @@ public class RequestVacationController {
         return "leave_request_form";
     }
 
+    //Param말고 body 사용해보기
     @PostMapping("/form")
-    public String submitVacationRequest(
-            @RequestParam Long empId,
-            @RequestParam LocalDateTime startDate,
-            @RequestParam LocalDateTime endDate,
-            @RequestParam String requestStatus,
-            @RequestParam String content){
+    public String submitLeaveRequest(@RequestParam("empId") Long empId,
+                                     @RequestParam("startDate") String startDate,
+                                     @RequestParam("endDate") String endDate,
+                                     @RequestParam("requestDate") String requestDate,
+                                     @RequestParam("vacationType") String vacationType,
+                                     @RequestParam("content") String content) {
 
-        requestVacationService.createVacationRequest(empId, startDate, endDate, requestStatus, content);
-        return "redirect:/leave_request_form";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+
+        requestVacationService.createLeaveRequest(empId,
+                LocalDateTime.parse(startDate, formatter),
+                LocalDateTime.parse(endDate, formatter),
+                LocalDateTime.parse(requestDate, formatter),
+                vacationType, content);
+        return "redirect:/leave_requests";
     }
 
 }
