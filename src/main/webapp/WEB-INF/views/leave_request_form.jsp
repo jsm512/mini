@@ -61,15 +61,15 @@
         </div>
         <div class="form-group">
             <label for="startDate">시작일:</label>
-            <input type="datetime-local" id="startDate" name="startDate" required />
+            <input type="date" id="startDate" name="startDate" required />
         </div>
         <div class="form-group">
             <label for="endDate">종료일:</label>
-            <input type="datetime-local" id="endDate" name="endDate" required />
+            <input type="date" id="endDate" name="endDate" required />
         </div>
         <div class="form-group">
             <label for="requestDate">신청일:</label>
-            <input type="datetime-local" id="requestDate" name="requestDate" required />
+            <input type="date" id="requestDate" name="requestDate" required />
         </div>
         <div class="form-group">
             <label for="vacationType">종류:</label>

@@ -3,6 +3,7 @@ package kr.co.ureca.sigw.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,16 +20,16 @@ public class RequestVacation {
     private Long requestId;
 
     @Column(name = "start_date")
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
     @Column(name = "end_date")
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
     @Column(name = "created_date")
-    private LocalDateTime requestDate;
+    private LocalDate requestDate;
 
     @Column(name = "updated_date")
-    private LocalDateTime updateDate;
+    private LocalDate updateDate;
 
     @Column(name = "catagory") //휴가 종류
     private String vacationType;
@@ -36,9 +37,10 @@ public class RequestVacation {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "status")
+    private String requestStatus;
+
     @ManyToOne
     @JoinColumn(name = "emp_idx")
     private Employee employee;
-    //asdfasdf
-    //asdfsadf
 }

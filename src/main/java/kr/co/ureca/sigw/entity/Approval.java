@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,7 +23,7 @@ public class Approval {
     private String approvalStatus;
 
     @Column(name = "date")
-    private LocalDateTime approvalDate;
+    private LocalDate approvalDate;
 
     @Column(name = "approver")
     private String approverName;

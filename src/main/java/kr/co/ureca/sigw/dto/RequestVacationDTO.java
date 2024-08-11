@@ -4,7 +4,7 @@ package kr.co.ureca.sigw.dto;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 public class RequestVacationDTO {
 
     private Long requestId;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String requestStatus;
     private String vacationType;
 

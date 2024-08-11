@@ -85,8 +85,8 @@
                 <th>신청 ID</th>
                 <th>시작일</th>
                 <th>종료일</th>
-                <th>상태</th>
                 <th>사유</th>
+                <th>상태</th>
             </tr>
             </thead>
             <tbody>
@@ -95,8 +95,36 @@
                     <td>${request.requestId}</td>
                     <td>${request.startDate}</td>
                     <td>${request.endDate}</td>
-                    <td>${request.requestStatus}</td>
                     <td>${request.vacationType}</td>
+                    <td>${request.requestStatus}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+<!-- 팀원 테이블 추가 -->
+    <c:if test="${not empty teamRequests}">
+        <h2>팀원들의 휴가 신청 내역</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>신청자 이름</th>
+                <th>신청 ID</th>
+                <th>시작일</th>
+                <th>종료일</th>
+                <th>사유</th>
+                <th>상태</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${teamRequests}" var="request">
+                <tr>
+                    <td>${request.employee.empName}</td>
+                    <td>${request.requestId}</td>
+                    <td>${request.startDate}</td>
+                    <td>${request.endDate}</td>
+                    <td>${request.vacationType}</td>
+                    <td>${request.requestStatus}</td>
                 </tr>
             </c:forEach>
             </tbody>

@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class Employee {
     private String empRole;
 
     @Column(name = "hiredate")
-    private LocalDateTime empHiredate;
+    private LocalDate empHiredate;
 
     @Column(name = "remained_vacation")
     private int remainingVacation;
