@@ -21,4 +21,8 @@ public class Receipt {
     @ManyToOne
     @JoinColumn(name = "doc_idx", nullable = false)
     private Document document;  // 외래 키 관계 매핑
+
+    public Receipt(int idx, int price, Date date, String usedStore){
+
+    }
 }
