@@ -44,4 +44,7 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     private List<RequestVacation> requestVacations;
+
+    @OneToMany
+    private List<Document> documentsList;
 }

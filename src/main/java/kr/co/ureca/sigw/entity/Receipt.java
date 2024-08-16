@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 @Entity // JPA에서 테이블과 매핑시켜줄 때
-public class Receipt {
+public class Receipt{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +18,8 @@ public class Receipt {
     @Column(name = "used_store")
     String usedStore;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "doc_idx", nullable = false)
     private Document document;  // 외래 키 관계 매핑
 
-    public Receipt(int idx, int price, Date date, String usedStore){
-
-    }
 }

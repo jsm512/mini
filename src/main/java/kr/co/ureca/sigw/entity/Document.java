@@ -31,7 +31,7 @@ public class Document {
     @Column(name = "updated_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime updatedDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_idx", nullable = false)
     private Employee employee;  // 외래 키 관계 매핑
 }
